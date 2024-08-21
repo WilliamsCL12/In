@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizaciones de Archivos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/stilomenu.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Cotizaciones de Archivos</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Blanco y Negro</a></li>
+                <li><a href="color.html">Color</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Ingresa Manualmente el Número de Páginas</h2>
+            <label for="manualPagesInput">O ingresa el número de páginas:</label>
+            <input type="number" id="manualPagesInputcolor" min="1" placeholder="Número de páginas a Color">
+            <input type="number" id="manualPagesInputbyn" min="1" placeholder="Número de páginas a Blanco y Negro">
+            <button id="uploadButton">Subir y Cotizar</button>
+        </section>
+        <section id="quoteSection" class="hidden">
+            <h2>Detalles de la Cotización</h2>
+            <p id="fileName"></p>
+            <p id="numPages"></p>
+            
+            <label for="numCopies">Cantidad de Juegos:</label>
+            <input type="number" id="numCopies" value="1" min="1">
+            <input type="radio" id="singleSided" class="hidden" name="printType" value="single" checked>
+                
+            
+            
+            <label for="bindingOption">Empastado o Encuadernado:</label>
+            <select id="bindingOption">
+                <option value="none" selected>Ninguno</option>
+                <option value="Empastado Delgado">Empastado Delgado</option>
+                <option value="Empastado Grueso">Empastado Grueso</option>
+                <option value="Encuadernado Delgado">Encuadernado Delgado</option>
+                <option value="Encuadernado Grueso">Encuadernado Grueso</option>
+                </select>
+            
+            <label>Serian todos los juegos?</label>
+            <div class="radio-group">
+                <input type="radio" id="allBind" name="bindAll" value="all" checked>
+                <label for="allBind">Sí</label>
+                <input type="radio" id="someBind" name="bindAll" value="some">
+                <label for="someBind">No</label>
+            </div>
+
+            <div id="numBindCopies" class="hidden">
+                <label for="numBindCopiesInput">Número de juegos a engargolar:</label>
+                <input type="number" id="numBindCopiesInput" value="1" min="0">
+            </div>
+
+            <label for="customerName">Nombre del Cliente:</label>
+            <input type="text" id="customerName">
+
+            <label for="customerPhone">Teléfono del Cliente:</label>
+            <input type="tel" id="customerPhone">
+
+            <button id="calculateButton">Calcular Cotización</button>
+            <p id="quote"></p>
+        </section>
+
+        <section>
+            <h2>Datos del Cliente</h2>
+            <p id="customerData"></p>
+        </section>
+        
+        <section>
+            <h2>Historial de Cotizaciones</h2>
+            <table id="quoteTable">
+                <thead>
+                    <tr>
+                        <th>Archivo</th>
+                        <th>Páginas</th>
+                        <th>Juegos</th>
+                        <th>Engargolados</th>
+                        <th>Tipo de Impresión</th>
+                        <th>Tipo de Engargolado</th>
+                        <th>Precio Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las cotizaciones se agregarán aquí -->
+                </tbody>
+            </table>
+            <button id="printButton">Imprimir Tabla</button>
+        </section>
+        
+        <section>
+            <h2>Total a Pagar</h2>
+            <p id="totalAmount">$0.00</p>
+            <p id="totalPagesAndBinding">Total de Páginas: 0, Total de Engargolados: 0</p>
+        </section>
+    </main>
+    <script src="js/tesis.js"></script>
+</body>
+</html>

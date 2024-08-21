@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización de Impresión</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Cotización de Impresión</h1>
+    
+    <form id="cotizacion-form">
+        <label for="archivo">Subir archivo PDF:</label>
+        <input type="file" id="archivo" accept=".pdf"><br><br>
+
+        <label for="num-paginas-color">Páginas a color:</label>
+        <input type="text" id="num-paginas-color" readonly><br><br>
+
+        <label for="num-paginas-bn">Páginas en blanco y negro:</label>
+        <input type="text" id="num-paginas-bn" readonly><br><br>
+
+        <label for="tipo-impresion">Tipo de impresión:</label>
+        <select id="tipo-impresion">
+            <option value="simple">Simple</option>
+            <option value="doble">Doble</option>
+        </select><br><br>
+
+        <label for="encuadernado">Encuadernado:</label>
+        <select id="encuadernado">
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+        </select><br><br>
+
+        <label for="costo-total">Costo total:</label>
+        <input type="text" id="costo-total" readonly><br><br>
+
+        <button type="button" id="calcular-btn">Calcular</button>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="js/color copy.js"></script>
+</body>
+</html>

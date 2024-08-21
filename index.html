@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizaciones de Archivos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/stilomenu.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Cotizaciones de Archivos</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Blanco y Negro</a></li>
+                <li><a href="color.html">Color</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Sube tu Archivo o Ingresa Manualmente el Número de Páginas</h2>
+            <input type="file" id="fileInput" accept=".pdf">
+            <label for="manualPagesInput">O ingresa el número de páginas:</label>
+            <input type="number" id="manualPagesInput" min="1" placeholder="Número de páginas">
+            <button id="uploadButton">Subir y Cotizar</button>
+        </section>
+        <section id="quoteSection" class="hidden">
+            <h2>Detalles de la Cotización</h2>
+            <p id="fileName"></p>
+            <p id="numPages"></p>
+            
+            <label for="numCopies">Cantidad de Juegos:</label>
+            <input type="number" id="numCopies" value="1" min="1">
+            
+            <label for="printType">Impresión:</label>
+            <div class="radio-group">
+                <input type="radio" id="singleSided" name="printType" value="single" checked>
+                <label for="singleSided">Un solo lado</label>
+                <input type="radio" id="doubleSided" name="printType" value="double">
+                <label for="doubleSided">Ambos lados</label>
+            </div>
+            
+            <label for="bindingOption">Engargolado:</label>
+            <select id="bindingOption">
+                <option value="none" selected>Ninguno</option>
+                <option value="Engargolado #8">Eng #8 ($16)</option>
+                <option value="Engargolado #11">Eng #11 ($18)</option>
+                <option value="Engargolado #12">Eng #12 ($18)</option>
+                <option value="Engargolado #14">Eng #14 ($20)</option>
+                <option value="Engargolado #16">Eng #16 ($20)</option>
+                <option value="Engargolado #20">Eng #20 ($24)</option>
+                <option value="Engargolado #23">Eng #23 ($24)</option>
+                <option value="Engargolado #25">Eng #25 ($24)</option>
+                <option value="Engargolado #30">Eng #30 ($30)</option>
+                <option value="Engargolado #38">Eng #38 ($30)</option>
+                <option value="Engargolado #40">Eng #40 ($38)</option>
+            </select>
+            
+            <label>¿Engargolar todos los juegos?</label>
+            <div class="radio-group">
+                <input type="radio" id="allBind" name="bindAll" value="all" checked>
+                <label for="allBind">Sí</label>
+                <input type="radio" id="someBind" name="bindAll" value="some">
+                <label for="someBind">No</label>
+            </div>
+
+            <div id="numBindCopies" class="hidden">
+                <label for="numBindCopiesInput">Número de juegos a engargolar:</label>
+                <input type="number" id="numBindCopiesInput" value="1" min="0">
+            </div>
+
+            <label for="customerName">Nombre del Cliente:</label>
+            <input type="text" id="customerName">
+
+            <label for="customerPhone">Teléfono del Cliente:</label>
+            <input type="tel" id="customerPhone">
+
+            <button id="calculateButton">Calcular Cotización</button>
+            <p id="quote"></p>
+        </section>
+
+        <section>
+            <h2>Datos del Cliente</h2>
+            <p id="customerData"></p>
+        </section>
+        
+        <section>
+            <h2>Historial de Cotizaciones</h2>
+            <table id="quoteTable">
+                <thead>
+                    <tr>
+                        <th>Archivo</th>
+                        <th>Páginas</th>
+                        <th>Juegos</th>
+                        <th>Engargolados</th>
+                        <th>Tipo de Impresión</th>
+                        <th>Tipo de Engargolado</th>
+                        <th>Precio Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las cotizaciones se agregarán aquí -->
+                </tbody>
+            </table>
+            <button id="printButton">Imprimir Tabla</button>
+        </section>
+        
+        <section>
+            <h2>Total a Pagar</h2>
+            <p id="totalAmount">$0.00</p>
+            <p id="totalPagesAndBinding">Total de Páginas: 0, Total de Engargolados: 0</p>
+        </section>
+    </main>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
